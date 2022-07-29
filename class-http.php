@@ -7,41 +7,41 @@
 
 namespace Mantle\Facade;
 
-use Mantle\Http_Client\Http_Client;
+use Mantle\Http_Client\Factory;
 
 /**
  * Http Facade
  *
- * @method static \Mantle\Http_Client\Http_Client as_form()
- * @method static \Mantle\Http_Client\Http_Client as_json()
- * @method static \Mantle\Http_Client\Http_Client attach( string|array $name, string|resource $contents = '', ?string $filename = null, array $headers = [] )
- * @method static \Mantle\Http_Client\Http_Client base_url( string $url )
- * @method static \Mantle\Http_Client\Http_Client with_body( string $content, string $content_type )
- * @method static \Mantle\Http_Client\Http_Client with_options( array $options )
- * @method static \Mantle\Http_Client\Http_Client body_format( string $format)
- * @method static \Mantle\Http_Client\Http_Client content_type( string $content_type )
- * @method static \Mantle\Http_Client\Http_Client accept_json()
- * @method static \Mantle\Http_Client\Http_Client accept( string $content_type )
- * @method static \Mantle\Http_Client\Http_Client with_headers( array $headers)
- * @method static \Mantle\Http_Client\Http_Client with_header( string $key, $value )
- * @method static \Mantle\Http_Client\Http_Client with_basic_auth( string $username, string $password)
- * @method static \Mantle\Http_Client\Http_Client with_digest_auth( string $username, string $password )
- * @method static \Mantle\Http_Client\Http_Client with_token( string $token, string $type = 'Bearer' )
- * @method static \Mantle\Http_Client\Http_Client with_user_agent( string $user_agent )
- * @method static \Mantle\Http_Client\Http_Client with_cookies( \WP_Http_Cookie[] $cookies )
- * @method static \Mantle\Http_Client\Http_Client with_cookie( \WP_Http_Cookie $cookie )
- * @method static \Mantle\Http_Client\Http_Client clear_cookies()
- * @method static \Mantle\Http_Client\Http_Client without_redirecting()
- * @method static \Mantle\Http_Client\Http_Client with_redirecting( int $times = 5 )
- * @method static \Mantle\Http_Client\Http_Client without_verifying()
- * @method static \Mantle\Http_Client\Http_Client timeout( int $seconds )
- * @method static \Mantle\Http_Client\Http_Client retry( int $retry )
- * @method static \Mantle\Http_Client\Response get( string $url, $query = null )
- * @method static \Mantle\Http_Client\Response head( string $url, $query = null )
- * @method static \Mantle\Http_Client\Response post( string $url, array $data = [] )
- * @method static \Mantle\Http_Client\Response patch( string $url, $data = [] )
- * @method static \Mantle\Http_Client\Response put( string $url, array $data = [] )
- * @method static \Mantle\Http_Client\Response delete( string $url, array $data = [] )
+ * @method static \Mantle\Http_Client\Pending_Request as_form()
+ * @method static \Mantle\Http_Client\Pending_Request as_json()
+ * @method static \Mantle\Http_Client\Pending_Request attach( string|array $name, string|resource $contents = '', ?string $filename = null, array $headers = [] )
+ * @method static \Mantle\Http_Client\Pending_Request base_url( string $url )
+ * @method static \Mantle\Http_Client\Pending_Request with_body( string $content, string $content_type )
+ * @method static \Mantle\Http_Client\Pending_Request with_options( array $options )
+ * @method static \Mantle\Http_Client\Pending_Request body_format( string $format)
+ * @method static \Mantle\Http_Client\Pending_Request content_type( string $content_type )
+ * @method static \Mantle\Http_Client\Pending_Request accept_json()
+ * @method static \Mantle\Http_Client\Pending_Request accept( string $content_type )
+ * @method static \Mantle\Http_Client\Pending_Request with_headers( array $headers)
+ * @method static \Mantle\Http_Client\Pending_Request with_header( string $key, $value )
+ * @method static \Mantle\Http_Client\Pending_Request with_basic_auth( string $username, string $password)
+ * @method static \Mantle\Http_Client\Pending_Request with_digest_auth( string $username, string $password )
+ * @method static \Mantle\Http_Client\Pending_Request with_token( string $token, string $type = 'Bearer' )
+ * @method static \Mantle\Http_Client\Pending_Request with_user_agent( string $user_agent )
+ * @method static \Mantle\Http_Client\Pending_Request with_cookies( \WP_Http_Cookie[] $cookies )
+ * @method static \Mantle\Http_Client\Pending_Request with_cookie( \WP_Http_Cookie $cookie )
+ * @method static \Mantle\Http_Client\Pending_Request clear_cookies()
+ * @method static \Mantle\Http_Client\Pending_Request without_redirecting()
+ * @method static \Mantle\Http_Client\Pending_Request with_redirecting( int $times = 5 )
+ * @method static \Mantle\Http_Client\Pending_Request without_verifying()
+ * @method static \Mantle\Http_Client\Pending_Request timeout( int $seconds )
+ * @method static \Mantle\Http_Client\Pending_Request retry( int $retry )
+ * @method static \Mantle\Http_Client\Response|static get( string $url, $query = null )
+ * @method static \Mantle\Http_Client\Response|static head( string $url, $query = null )
+ * @method static \Mantle\Http_Client\Response|static post( string $url, array $data = [] )
+ * @method static \Mantle\Http_Client\Response|static patch( string $url, $data = [] )
+ * @method static \Mantle\Http_Client\Response|static put( string $url, array $data = [] )
+ * @method static \Mantle\Http_Client\Response|static delete( string $url, array $data = [] )
  */
 class Http extends Facade {
 	/**
@@ -50,6 +50,6 @@ class Http extends Facade {
 	 * @return string
 	 */
 	protected static function get_facade_accessor(): string {
-		return Http_Client::class;
+		return Factory::class;
 	}
 }
