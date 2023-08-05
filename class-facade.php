@@ -56,15 +56,6 @@ abstract class Facade {
 	}
 
 	/**
-	 * Get the application instance for the Facade.
-	 *
-	 * @return \Mantle\Contracts\Application|null
-	 */
-	public static function get_facade_application(): ?Application {
-		return static::$app;
-	}
-
-	/**
 	 * Set the application instance for the Facade.
 	 *
 	 * @param \Mantle\Contracts\Application $app Application instance.
@@ -125,7 +116,7 @@ abstract class Facade {
 		$instance = static::get_facade_root();
 
 		if ( ! $instance ) {
-			throw new RuntimeException( 'A facade root has not been set. Have you booted the application? Try using bootloader()->boot()?' );
+			throw new RuntimeException( 'A facade root has not been set.' );
 		}
 
 		return $instance->$method( ...$args );
