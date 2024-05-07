@@ -22,6 +22,8 @@ namespace Mantle\Facade;
 class Asset extends Facade {
 	/**
 	 * Facade Accessor
+	 *
+	 * @return string
 	 */
 	protected static function get_facade_accessor(): string {
 		return 'asset.manager';

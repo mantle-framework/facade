@@ -20,6 +20,8 @@ use RuntimeException;
 abstract class Facade {
 	/**
 	 * The application instance being facaded.
+	 *
+	 * @var \Mantle\Contracts\Application|null
 	 */
 	protected static ?Application $app = null;
 
@@ -32,13 +34,15 @@ abstract class Facade {
 
 	/**
 	 * Get the name of the Facade Accessor
+	 *
+	 * @return string
 	 */
 	abstract protected static function get_facade_accessor(): string;
 
 	/**
 	 * Clear the resolved instances by the Facade.
 	 */
-	public static function clear_resolved_instances(): void {
+	public static function clear_resolved_instances() {
 		static::$resolved_instances = [];
 	}
 
@@ -47,12 +51,14 @@ abstract class Facade {
 	 *
 	 * @param string $name Instance name.
 	 */
-	public static function clear_resolved_instance( string $name ): void {
+	public static function clear_resolved_instance( string $name ) {
 		unset( static::$resolved_instances[ $name ] );
 	}
 
 	/**
 	 * Get the application instance for the Facade.
+	 *
+	 * @return \Mantle\Contracts\Application|null
 	 */
 	public static function get_facade_application(): ?Application {
 		return static::$app;
@@ -63,7 +69,7 @@ abstract class Facade {
 	 *
 	 * @param \Mantle\Contracts\Application $app Application instance.
 	 */
-	public static function set_facade_application( Application $app = null ): void {
+	public static function set_facade_application( Application $app = null ) {
 		static::$app = $app;
 	}
 
@@ -72,7 +78,7 @@ abstract class Facade {
 	 *
 	 * @param mixed $instance Object instance.
 	 */
-	public static function swap( $instance ): void {
+	public static function swap( $instance ) {
 		static::$resolved_instances[ static::get_facade_accessor() ] = $instance;
 
 		if ( isset( static::$app ) ) {
