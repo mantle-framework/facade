@@ -37,8 +37,6 @@ namespace Mantle\Facade;
  * @method static void model(string $model, string $controller)
  * @method static void sync_routes_to_url_generator()
  * @method static \Mantle\Http\Routing\Router rename_route(string $old_name, string $new_name)
- * @method static \Mantle\Http\Routing\Router pass_requests_to_wordpress(callable|bool $callback)
- * @method static bool should_pass_through_request(\Mantle\Http\Request $request)
  * @method static bool has_group_stack()
  * @method static array get_group_stack()
  * @method static void group(array $attributes, \Closure|string $routes)
@@ -62,6 +60,8 @@ namespace Mantle\Facade;
 class Route extends Facade {
 	/**
 	 * Get the registered name of the component.
+	 *
+	 * @return string
 	 */
 	protected static function get_facade_accessor(): string {
 		return 'router';

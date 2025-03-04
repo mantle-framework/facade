@@ -33,7 +33,7 @@ namespace Mantle\Facade;
  * @method static string|null user_agent()
  * @method static \Mantle\Http\Request merge(array $input)
  * @method static \Mantle\Http\Request replace(array $input)
- * @method static mixed|null get(string $key, mixed $default = null)
+ * @method static mixed get(string $key, mixed $default = null)
  * @method static \Symfony\Component\HttpFoundation\ParameterBag|mixed json(string|null $key = null, mixed $default = null)
  * @method static bool is_json()
  * @method static \Mantle\Http\Request set_json(\Symfony\Component\HttpFoundation\ParameterBag $json)
@@ -44,10 +44,10 @@ namespace Mantle\Facade;
  * @method static \Mantle\Http\Routing\Route get_route()
  * @method static \Mantle\Http\Request set_route(\Mantle\Http\Routing\Route $route)
  * @method static void initialize(array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], string|resource|null $content = null)
- * @method static \Mantle\Http\Request createFromGlobals()
- * @method static \Mantle\Http\Request create(string $uri, string $method = 'GET', array $parameters = [], array $cookies = [], array $files = [], array $server = [], string|resource|null $content = null)
+ * @method static \static createFromGlobals()
+ * @method static \static create(string $uri, string $method = 'GET', array $parameters = [], array $cookies = [], array $files = [], array $server = [], string|resource|null $content = null)
  * @method static void setFactory(callable|null $callable)
- * @method static \Mantle\Http\Request duplicate(array|null $query = null, array|null $request = null, array|null $attributes = null, array|null $cookies = null, array|null $files = null, array|null $server = null)
+ * @method static \static duplicate(array|null $query = null, array|null $request = null, array|null $attributes = null, array|null $cookies = null, array|null $files = null, array|null $server = null)
  * @method static void overrideGlobals()
  * @method static void setTrustedProxies(array $proxies, int $trustedHeaderSet)
  * @method static string[] getTrustedProxies()
@@ -116,7 +116,7 @@ namespace Mantle\Facade;
  * @method static bool isFromTrustedProxy()
  * @method static string|array|null server(string|null $key = null, string|array|null $default = null)
  * @method static bool has_header(string $key)
- * @method static array|string|null header(string|null $key = null, string|array|null $default = null)
+ * @method static string|array|null header(string|null $key = null, string|array|null $default = null)
  * @method static string|null bearer_token()
  * @method static bool exists(string|array $key)
  * @method static bool has(string|array $key)
@@ -152,6 +152,8 @@ namespace Mantle\Facade;
 class Request extends Facade {
 	/**
 	 * Get the registered name of the component.
+	 *
+	 * @return string
 	 */
 	protected static function get_facade_accessor(): string {
 		return 'request';

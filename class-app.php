@@ -35,13 +35,16 @@ namespace Mantle\Facade;
  * @method static string environment_file(string $file = null)
  * @method static string environment_path(string $path = null)
  * @method static string environment()
- * @method static bool is_environment(string ...$environments)
- * @method static \Mantle\Application\Application set_environment(string $environment)
+ * @method static bool is_environment(string|array ...$environments)
  * @method static string get_namespace()
  * @method static string namespace()
  * @method static bool is_running_in_console()
  * @method static bool is_running_in_console_isolation()
+ * @method static \Mantle\Application\Application set_environment(string $environment)
  * @method static void abort(int $code, string $message = '', array $headers = [])
+ * @method static \Mantle\Application\Application booting(callable $callback)
+ * @method static \Mantle\Application\Application booted(callable $callback)
+ * @method static \Mantle\Application\Application terminating(callable $callback)
  * @method static void terminate()
  * @method static bool bound(string $abstract)
  * @method static bool has(string $id)
@@ -77,22 +80,21 @@ namespace Mantle\Facade;
  * @method static \Mantle\Contracts\Container getInstance()
  * @method static \Mantle\Contracts\Container get_instance()
  * @method static \Mantle\Contracts\Container|null set_instance(\Mantle\Contracts\Container|null $container = null)
- * @method static \Mantle\Application\Application booting(callable $callback)
- * @method static \Mantle\Application\Application booted(callable $callback)
- * @method static \Mantle\Application\Application terminating(callable $callback)
  * @method static void load_base_configuration()
  * @method static void load_environment_variables()
  * @method static void load_facades()
  * @method static void register_configured_providers()
  * @method static \Mantle\Support\Service_Provider|null get_provider(string $name)
  * @method static \Mantle\Support\Service_Provider[] get_providers()
- * @method static \Mantle\Application\Application register(array|\Mantle\Support\Service_Provider|string $provider)
+ * @method static \Mantle\Application\Application register(\Mantle\Support\Service_Provider|string $provider)
  *
  * @see \Mantle\Application\Application
  */
 class App extends Facade {
 	/**
 	 * Facade Accessor
+	 *
+	 * @return string
 	 */
 	protected static function get_facade_accessor(): string {
 		return 'app';
