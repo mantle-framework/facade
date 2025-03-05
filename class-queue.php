@@ -13,8 +13,9 @@ use Mantle\Queue\Queue_Fake;
 /**
  * Queue Facade
  *
- * @method static mixed dispatch(mixed $job)
- * @method static mixed dispatch_now(mixed $job)
+ * @method static void dispatch(mixed $job)
+ * @method static void dispatch_after_response(mixed $job)
+ * @method static void dispatch_now(mixed $job)
  *
  * @see \Mantle\Queue\Dispatcher
  */
@@ -34,8 +35,6 @@ class Queue extends Facade {
 
 	/**
 	 * Get the registered name of the component.
-	 *
-	 * @return string
 	 */
 	protected static function get_facade_accessor(): string {
 		return 'queue';
